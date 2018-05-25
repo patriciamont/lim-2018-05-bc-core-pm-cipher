@@ -30,7 +30,7 @@ function cifrarMensaje(){
     //si no cumple mis condiciones ejemplo -; cualquier otro signo.
         }else {
                 let noCaracter= String.fromCharCode(code);
-        mensaje+=nocaracter;
+        mensaje+=noCaracter;
         }
     }
     box_two.value=mensaje;
@@ -51,9 +51,9 @@ function decifrarMensaje(){
              word_minuscula=String.fromCharCode((code - 97+23)%26+97);
             mensaje+=word_minuscula;
     //si no cumple mis condiciones ejemplo -; cualquier otro signo.
-        }else {
+        }    else {
                 let noCaracter= String.fromCharCode(code);
-        mensaje+=nocaracter;
+        mensaje+=noCaracter;
         }
     }
     box_two.value=mensaje;
