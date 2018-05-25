@@ -4,7 +4,15 @@
 let box_one = document.getElementById("mensaje");
 let boton = document.getElementById("botone");
 boton.addEventListener("click",cifrarMensaje);
+
 let box_two = document.getElementById("descifrar");
+
+
+
+let boton2= document.getElementById("botone2");
+boton2.addEventListener("click",decifrarMensaje);
+
+
 
 function cifrarMensaje(){
     let mensaje="";
@@ -18,6 +26,29 @@ function cifrarMensaje(){
             mensaje +=word_mayuscula;
         }   else if(code >=97 && code<=122){
              word_minuscula=String.fromCharCode((code - 97+3)%26+97);
+            mensaje+=word_minuscula;
+    //si no cumple mis condiciones ejemplo -; cualquier otro signo.
+        }else {
+                let noCaracter= String.fromCharCode(code);
+        mensaje+=nocaracter;
+        }
+    }
+    box_two.value=mensaje;
+}
+
+
+function decifrarMensaje(){
+    let mensaje="";
+    let letra=box_one.value;
+    for (let i=0;i<letra.length;i++){
+
+        let code=letra.charCodeAt(i);
+
+        if (code >=65 && code<=90){
+            word_mayuscula= String.fromCharCode((code - 65+23)%26+65);
+            mensaje +=word_mayuscula;
+        }   else if(code >=97 && code<=122){
+             word_minuscula=String.fromCharCode((code - 97+23)%26+97);
             mensaje+=word_minuscula;
     //si no cumple mis condiciones ejemplo -; cualquier otro signo.
         }else {

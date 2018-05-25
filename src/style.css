@@ -17,5 +17,11 @@ input,textarea{
 }
 
 input:focus,textarea:focus{
-border: 1px solid #1668c4;
+    border: 1px solid #1668c4;
+}
+body{
+    text-align: center;
+    background: #EBF5FB;
+    
+    
 }
