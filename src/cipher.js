@@ -1,8 +1,6 @@
 window.cipher = {
-    encode:function (){
-        let d=parseInt(desplazamiento.value);
+    encode:function (d,letra){
         let mensaje="";
-        let letra=box_one.value;
         for (let i=0;i<letra.length;i++){
             let code=letra.charCodeAt(i);
             if (code >=65 && code<=90){
@@ -20,10 +18,8 @@ window.cipher = {
     box_two.value=mensaje;
     },
 
-    decode:function (){
-        let d=parseInt(desplazamiento.value);
+    decode:function (d,letra){
         let mensaje="";
-        let letra=box_one.value;
         for (let i=0;i<letra.length;i++){
 
             let code=letra.charCodeAt(i);
@@ -46,7 +42,7 @@ window.cipher = {
     box_two.value=mensaje;
     },
 
-    createCipherWithOffset:function(){
+    createCipherWithOffset:function(d,letra){
         const letra= "abcdefghijklmnopqrstuvwxyz";
         const metod= cipher.encode(letra);
         const metod2= cipher.decode(letra);
