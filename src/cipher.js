@@ -1,13 +1,14 @@
 window.cipher = {
-    encode:function (d,letra){
+    encode:function (offset,string){
+        let d=parseInt(offset);
         let mensaje="";
-        for (let i=0;i<letra.length;i++){
-            let code=letra.charCodeAt(i);
+        for (let i=0;i<string.length;i++){
+            let code=string.charCodeAt(i);
             if (code >=65 && code<=90){
-            word_mayuscula= String.fromCharCode((code - 65+d)%26+65);
+            let word_mayuscula= String.fromCharCode((code - 65+d)%26+65);
             mensaje +=word_mayuscula;
             }   else if(code >=97 && code<=122){
-             word_minuscula=String.fromCharCode((code - 97+d)%26+97);
+            let word_minuscula=String.fromCharCode((code - 97+d)%26+97);
             mensaje+=word_minuscula;
             //si no cumple mis condiciones ejemplo -; cualquier otro signo.
          }else {
@@ -15,20 +16,21 @@ window.cipher = {
          mensaje+=noCaracter;
         }
         }
-    box_two.value=mensaje;
+    return mensaje;
     },
 
-    decode:function (d,letra){
+    decode:function (offset,string){
+        let d=parseInt(offset);
         let mensaje="";
-        for (let i=0;i<letra.length;i++){
+        for (let i=0;i<string.length;i++){
 
-            let code=letra.charCodeAt(i);
+            let code=string.charCodeAt(i);
 
             if (code >=65 && code<=90){
-            word_mayuscula= String.fromCharCode((code - 65-d)%26+91);
+            let word_mayuscula= String.fromCharCode((code - 65-d)%26+91);
             mensaje +=word_mayuscula;
             }   else if(code >=97 && code<=122){
-             word_minuscula=String.fromCharCode((code - 97-d)%26+123);
+            let word_minuscula=String.fromCharCode((code - 97-d)%26+123);
                     if((code-97-d)%26==0 ||(code-97-d)%26>0){
                         word_minuscula=String.fromCharCode((code - 97-d)%26+97);
                     }
@@ -39,14 +41,10 @@ window.cipher = {
              mensaje+=noCaracter;
          }
     }
-    box_two.value=mensaje;
+    return mensaje;
     },
 
-    createCipherWithOffset:function(d,letra){
-        const letra= "abcdefghijklmnopqrstuvwxyz";
-        const metod= cipher.encode(letra);
-        const metod2= cipher.decode(letra);
 
     }
-}
+
   

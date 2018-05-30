@@ -1,17 +1,17 @@
-let d=parseInt(desplazamiento.value);
-let letra=box_one.value;
-
 let box_one = document.getElementById("mensaje");
-let boton = document.getElementById("botone");
+let cifrar=document.getElementById("botone");
+let desplazamiento=document.getElementById("desplazar");
+
+let boton2= document.getElementById("botone2");
 let box_two = document.getElementById("descifrar");
 
 
-let boton2= document.getElementById("botone2");
-let desplazamiento=document.getElementById("desplazar");
+cifrar.addEventListener("click",function(){
+box_two.value=cipher.encode(desplazamiento.value,box_one.value);
 
-boton.addEventListener("click",cipher.encode());
-
-
-boton2.addEventListener("click",cipher.decode());
+});
 
 
+boton2.addEventListener("click",function(){
+ box_two.value=cipher.decode(desplazamiento.value,box_one.value);
+})
