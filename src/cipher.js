@@ -28,6 +28,9 @@ window.cipher = {
 
             if (code >=65 && code<=90){
             let word_mayuscula= String.fromCharCode((code - 65-d)%26+91);
+                if((code-65-d)%26==0 || (code-65-d)%26>0){
+                    word_mayuscula=String.fromCharCode((code-65-d)%26+65);
+                }
             mensaje +=word_mayuscula;
             }   else if(code >=97 && code<=122){
             let word_minuscula=String.fromCharCode((code - 97-d)%26+123);
