@@ -46,8 +46,21 @@ window.cipher = {
     }
     return mensaje;
     },
+    createCipherWithOffset: function(offset){
+        let codigo={ 
+            encode: function(string){
+               return cipher.encode(offset,string);
+            },
 
+            decode: function(string){
+                return cipher.decode(offset,string);
+
+            }
+        }
+        return codigo
 
     }
+
+}
 
   
