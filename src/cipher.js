@@ -1,5 +1,5 @@
 window.cipher = {
-    encode:function (offset,string){
+    encode: (offset,string)=>{
         let d=parseInt(offset);
         let outputMessage="";
         for (let i=0;i<string.length;i++){
@@ -24,7 +24,7 @@ window.cipher = {
     return outputMessage;
     },
 
-    decode:function (offset,string){
+    decode: (offset,string)=>{
         let d=parseInt(offset);
         let outputMessage="";
         for (let i=0;i<string.length;i++){
@@ -51,13 +51,13 @@ window.cipher = {
     }
     return outputMessage;
     },
-    createCipherWithOffset: function(offset){
+    createCipherWithOffset: (offset)=>{
         let codeMaster={ 
-            encode: function(string){
+            encode: (string) => {
                return cipher.encode(offset,string);
             },
 
-            decode: function(string){
+            decode: (string) => {
                 return cipher.decode(offset,string);
 
             }
