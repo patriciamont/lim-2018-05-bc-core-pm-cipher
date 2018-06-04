@@ -1,5 +1,5 @@
 h1{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial, sans-serif';
+    font-family: Georgia, Times, 'Times New Roman', serif;
     font-size: 300%;
     text-align: center;
     background: #FAD7A0;
@@ -12,30 +12,26 @@ input,textarea{
 
     font-size: 100%;
     padding: 5px;
-    border: 1px solid #ccc;
     font-family: Georgia, Times, 'Times New Roman', serif;
-    
-}
-
-input:focus,textarea:focus{
-    border: 1px solid #1668c4;
-
-}
-textarea {
     border: 3px solid #01DFD7;
-    font-family: Georgia, Times, 'Times New Roman', serif;
-
 }
+
+
 body{
     text-align: center;
-    background-image:url( https://elespaciodelasletras.files.wordpress.com/2015/01/cropped-main-cover_v2.jpg) ;
-    
+    background-image:url(http://rjmsystems.us/wp-content/uploads/surprize-party-surprise-birthday-party-pictures-posters-news-and-videos-on-150x150.jpg);
     
 }
-p   {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial, sans-serif';
-    font-size: 120%;
-    color:#2E86C1;
-    
-
+.button {
+    background-color: #008CBA;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
 }

@@ -1,53 +1,58 @@
 window.cipher = {
     encode:function (offset,string){
         let d=parseInt(offset);
-        let mensaje="";
+        let outputMessage="";
         for (let i=0;i<string.length;i++){
-            let code=string.charCodeAt(i);
+            let code=string.charCodeAt(i); // transformando al codigo ascii.
             if (code >=65 && code<=90){
-            let word_mayuscula= String.fromCharCode((code - 65+d)%26+65);
-            mensaje +=word_mayuscula;
+            let uppercase_word= String.fromCharCode((code - 65+d)%26+65);
+            outputMessage +=uppercase_word;
             }   else if(code >=97 && code<=122){
-            let word_minuscula=String.fromCharCode((code - 97+d)%26+97);
-            mensaje+=word_minuscula;
-            //si no cumple mis condiciones ejemplo -; cualquier otro signo.
-         }else {
-                let noCaracter= String.fromCharCode(code);
-         mensaje+=noCaracter;
+            let lowercase_word=String.fromCharCode((code - 97+d)%26+97);
+            outputMessage+=lowercase_word;
+     //si no cumple mis condiciones ejemplo -; cualquier otro signo volverá aparaecer el mismo signo ingresado al inicio.
+            } else if(code >=48 && code <=57){
+            let withNumbers= String.fromCharCode((code - 48 + d)%10 + 48);
+            outputMessage +=withNumbers;
+
+                }
+             else {
+                let anotherSing= String.fromCharCode(code);
+         outputMessage += anotherSing;
         }
         }
-    return mensaje;
+    return outputMessage;
     },
 
     decode:function (offset,string){
         let d=parseInt(offset);
-        let mensaje="";
+        let outputMessage="";
         for (let i=0;i<string.length;i++){
 
             let code=string.charCodeAt(i);
 
             if (code >=65 && code<=90){
-            let word_mayuscula= String.fromCharCode((code - 65-d)%26+91);
+            let uppercase_word= String.fromCharCode((code - 65-d)%26+91);
                 if((code-65-d)%26==0 || (code-65-d)%26>0){
-                    word_mayuscula=String.fromCharCode((code-65-d)%26+65);
+                    uppercase_word=String.fromCharCode((code-65-d)%26+65);
                 }
-            mensaje +=word_mayuscula;
+            outputMessage +=uppercase_word;
             }   else if(code >=97 && code<=122){
-            let word_minuscula=String.fromCharCode((code - 97-d)%26+123);
+            let lowercase_word=String.fromCharCode((code - 97-d)%26+123);
                     if((code-97-d)%26==0 ||(code-97-d)%26>0){
-                        word_minuscula=String.fromCharCode((code - 97-d)%26+97);
+                        lowercase_word=String.fromCharCode((code - 97-d)%26+97);
                     }
-            mensaje+=word_minuscula;
+            outputMessage+=lowercase_word;
          //si no cumple mis condiciones ejemplo -; cualquier otro signo.
             }    else {
-                let noCaracter= String.fromCharCode(code);
-             mensaje+=noCaracter;
+                let anotherSign= String.fromCharCode(code);
+             outputMessage+=anotherSign;
          }
     }
-    return mensaje;
+    return outputMessage;
     },
     createCipherWithOffset: function(offset){
-        let codigo={ 
+        let codeMaster={ 
             encode: function(string){
                return cipher.encode(offset,string);
             },
@@ -57,7 +62,7 @@ window.cipher = {
 
             }
         }
-        return codigo
+        return codeMaster
 
     }
 
